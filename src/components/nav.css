@@ -1,0 +1,25 @@
+.text-with-gradual-underline {
+    position: relative;
+    font-weight: semibold; 
+    text-decoration: none; 
+    color:var(--text-color); 
+    transition: all 0.3s ease; 
+  }
+  
+.text-with-gradual-underline::before {
+    content: "";
+    position: absolute;
+    bottom: -2px; 
+    left: 0;
+    right: 100%; 
+    background-color:#FFD700; 
+    height: 2px; 
+    transition: right 0.3s ease; 
+  }
+  
+.text-with-gradual-underline:hover::before {
+    right: 0; 
+  }
+  
+  
+  

@@ -1,0 +1,70 @@
+:root{
+  --header-height:3rem;
+
+--hue: 0;
+--sat: 0%;
+--title-color:hsl(var(--hue) ,var(--sat) ,20%);
+--title-color-dark:hsl(var(--hue),var(--sat),0%);
+--text-color:hsl(var(--hue),var(--sat),46%);
+--body-color:hsl(var(--hue),var(--sat),98%);
+--container-color:#fff ;
+}
+body{
+  font-family:'Poppins', sans-serif;
+  background-color: var(--body-color);
+  color:var(--text-color)
+}
+
+*{
+  margin: 0;
+  
+  box-sizing: border-box;
+
+}
+html{
+  scroll-behavior: smooth;
+}
+
+
+body,
+button,
+input,
+textarea{
+  font-family:'Poppins', sans-serif; 
+ 
+}
+
+h1{
+  color: var(--text-color);
+  font-weight: semibold;
+}
+
+ul{
+  list-style: none;
+}
+a{
+text-decoration: none;
+cursor: pointer;
+}
+
+button{
+  cursor: pointer;
+  outline: none;
+ 
+}
+
+
+.section_title{
+  color: var(--title-color);
+}
+
+.section_substitle{
+  display: bock;
+  margin-bottom: 4rem;
+}
+
+.section_title,
+.section_substitle{
+  text-align: center;
+
+}

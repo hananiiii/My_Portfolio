@@ -1,0 +1,37 @@
+.fancy-button {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .fancy-button::before {
+    content: '';
+    position: absolute;
+    background-color: #FFD700;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .fancy-button:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .fancy-button {
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to left, transparent 0%, #FFD700 100%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: background-position 0.5s;
+  }
+  
+  .fancy-button:hover {
+    background-position: left bottom;
+  }
+  
