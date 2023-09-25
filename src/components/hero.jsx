@@ -13,7 +13,7 @@ const Hero = () => {
             <ion-icon name="hand-right-outline"></ion-icon>
           </div>
           </h6>
-          <h2 className='font-semibold text-[#FFD700] text-4xl inline-block'>
+          <h2 className='font-semibold text-[#FFD700] lg:text-4xl sm:text-4xl text-3xl inline-block'>
           
           <Typewriter
             options={{
@@ -27,7 +27,7 @@ const Hero = () => {
             }}
           />
           </h2>
-          <p className='text-sm font-light text-title_color md:max-w-xl max-w-lg  text-center leading-7 '>
+          <p className='text-sm font-light text-title_color md:max-w-xl max-w-lg px-4   text-center leading-7 '>
           Committed to crafting digital experiences that exceed your expectations, I'm dedicated to putting in the hard work to bring your vision to life. Your satisfaction is my utmost priority.
           </p>
           <Social/>

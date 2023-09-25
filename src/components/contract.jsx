@@ -58,7 +58,7 @@ const contract = () => {
 
               </div>
             
-              <div className="lg:w-1/2  w-full lg:mx-0 sm:mx-0 mx-12 ">
+              <div className="lg:w-1/2  w-full lg:mx-0 sm:mx-0 mx-6 ">
               <form onSubmit={handleSubmit} className='text-title_color flex flex-col gap-4  md:mx-0  ' >
                    
                     <input
