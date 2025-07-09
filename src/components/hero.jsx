@@ -17,7 +17,7 @@ const Hero = () => {
         <h2 className="font-semibold text-[#FFD700] lg:text-4xl sm:text-4xl text-3xl inline-block">
           <Typewriter
             options={{
-              strings: ['Web Developer', 'Frontend Developer'],
+              strings: ['Full stack Developer', 'AI Enthusiast'],
               autoStart: true,
               loop: true,
             }}

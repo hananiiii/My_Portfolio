@@ -53,7 +53,7 @@ const Skills = () => {
   const categories = ["Frontend", "Backend", "Microservices", "Languages", "AI/ML", "Tools", "Soft Skills"];
 
   return (
-    <section id="skills" className="py-16 font-custom">
+    <section id="skills" className="py-12 font-custom">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-title_color text-center mb-12">
           Skills

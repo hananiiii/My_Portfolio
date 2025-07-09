@@ -6,7 +6,7 @@ const Logo = ({ color }) => {
   return (
     <div className={`flex gap-2 text-3xl font-medium cursor-pointer ${textColor}`}>
       <span className='text-3xl'><ion-icon name="code-slash-outline"></ion-icon></span>
-      <h1 className={`text-2xl ${textColor}`}>Visuals</h1>
+      <h1 className={`text-2xl ${textColor}`}></h1>
     </div>
   )
 }
