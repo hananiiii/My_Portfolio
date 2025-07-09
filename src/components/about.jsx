@@ -15,7 +15,7 @@ const about = () => {
                            <div className='border  border-md rounded-md  px-8 py-8 text-center cursor-pointer hover:transform hover:-translate-y-1  transition-transform duration-300'>
                            <span className='text-3xl text-yelow inline-block'><ion-icon name="calendar-outline"></ion-icon></span>
                             <h2 className='text-lg font-semibold text-title_color'>Experience</h2> 
-                            <p className='text-sm font-medium text-title_color   text-center leading-7'>2 Years</p>
+                            <p className='text-sm font-medium text-title_color   text-center leading-7'>4 Years</p>
                            </div>
                            <div className='border border-md rounded-md  px-8 py-8 text-center cursor-pointer hover:transform hover:-translate-y-1  transition-transform duration-300'>
                            <span className='text-3xl text-yelow inline-block'><ion-icon name="podium-outline"></ion-icon></span>
@@ -28,8 +28,9 @@ const about = () => {
                             <p className='text-sm font-medium text-title_color   text-center leading-7'>24h/7</p>
                            </div>
                     </div>
-                    <p className='text-sm font-light text-title_color  lg:text-start text-center leading-7'>I'm a passionate and dedicated front-end developer, driven by a strong desire to create engaging and user-friendly web experiences. With a keen eye for detail and a love for coding, I'm committed to turning ideas into beautifully functional websites.</p>
-
+<p className='text-sm font-light text-title_color lg:text-start text-center leading-7'>
+  I’m a dedicated full-stack developer and Korean language educator, passionate about crafting scalable, user-focused solutions using microservices architecture. Proficient in programming languages, and event-driven systems like Kafka and Axon Framework, I lead innovative projects while fostering engaging learning environments through strong communication and cultural exchange.
+</p>
 
                 </div>
         </div>

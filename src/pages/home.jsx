@@ -8,6 +8,7 @@ import Projects from '../components/projects'
 import Contact from '../components/contract'
 import Footer from '../components/footer'
 import BackToTopButton from '../components/backtotopbutton'
+import Experience from '../components/expreience'
 const home = () => {
   return (
    <>
@@ -17,6 +18,7 @@ const home = () => {
    <Services/>
    <Skills/>
    <Projects/>
+   <Experience/>
    <Contact/>
    <Footer/>
    <BackToTopButton/>
