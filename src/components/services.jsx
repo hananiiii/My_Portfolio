@@ -30,7 +30,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="lg:mt-44 mt-32 font-custom mb-32">
+    <section id="services" className="lg:mt-32 mt-20 font-custom mb-32">
       <h1 className="text-4xl flex justify-center items-center font-semibold text-title_color mb-20">
         Services
       </h1>

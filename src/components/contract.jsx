@@ -1,127 +1,200 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { Mail, Phone, Linkedin, Github } from 'lucide-react';
 
 const Contact = () => {
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("First Name:", firstName);
-    console.log("Email:", email);
-    console.log("Message:", message);
+    setStatus('');
+    setIsSubmitting(true);
 
-    setFirstName("");
-    setEmail("");
-    setMessage("");
+    // Basic validation
+    if (!firstName || !email || !message) {
+      setStatus('Please fill in all fields.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const templateParams = {
+        from_name: firstName,
+        from_email: email,
+        message: message
+      };
+
+      await emailjs.send(
+        'service_v8v152u', // Your EmailJS Service ID
+        'template_xalqkv8', // Your EmailJS Template ID
+        templateParams,
+        'UT5i_PfIZKZMFKxKU' // Your EmailJS Public Key
+      );
+
+      setStatus('Message sent successfully!');
+      setFirstName('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      setStatus('Failed to send message. Please try again.');
+      console.error('EmailJS error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contacts = [
     {
-      icon: <ion-icon name="mail-outline"></ion-icon>,
-      title: "E-mail",
-      text: "hananefatna63@gmail.com",
+      icon: <Mail className="w-6 h-6" />,
+      title: 'E-mail',
+      text: 'hananelachoub03@gmail.com'
     },
     {
-      icon: <ion-icon name="call-outline"></ion-icon>,
-      title: "Phone number",
-      text: "0558420692",
+      icon: <Phone className="w-6 h-6" />,
+      title: 'Phone number',
+      text: '+213 553768349'
     },
     {
-      icon: <ion-icon name="logo-linkedin"></ion-icon>,
-      title: "LinkedIn",
-      text: "LACHOUB Hanane",
-      link: "https://www.linkedin.com/in/lachoub-hanane-8a524a28a/", // Replace with your actual LinkedIn URL
+      icon: <Linkedin className="w-6 h-6" />,
+      title: 'LinkedIn',
+      text: 'LACHOUB Hanane',
+      link: 'https://www.linkedin.com/in/lachoub-hanane-8a524a28a/'
     },
     {
-      icon: <ion-icon name="logo-github"></ion-icon>,
-      title: "GitHub",
-      text: "hananiiii",
-      link: "https://github.com/hananiiii", // Replace with your actual GitHub URL
-    },
+      icon: <Github className="w-6 h-6" />,
+      title: 'GitHub',
+      text: 'hananiiii',
+      link: 'https://github.com/hananiiii'
+    }
   ];
 
   return (
-    <section id="contact" className="lg:mt-44 mt-32 font-custom">
-      <h1 className="text-4xl flex justify-center items-center font-semibold text-title_color">
-        Contact Me
-      </h1>
+    <section id="contact" className="py-12 font-custom bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4">
+        <h1 className="text-4xl font-bold text-title_color text-center mb-16 animate-fade-in">
+          Contact Me
+        </h1>
 
-      <div className="container flex flex-wrap items-center justify-center mx-auto mt-20 md:px-32 md:flex-row">
-        <div className="mb-14 lg:mb-0 lg:w-1/2">
-          <div className="grid lg:grid-cols-1 sm:grid-cols-2 grid-cols-1 gap-8">
-            {contacts.map((contact, index) => (
-              <div
-                key={index}
-                className="border rounded-md cursor-pointer w-auto lg:w-[75%] h-auto px-6 py-4 hover:transform hover:-translate-y-1 transition-transform duration-300"
-              >
-                <div className="flex gap-3 items-center">
-                  <span className="text-3xl text-yelow">{contact.icon}</span>
-                  <h1 className="text-xl font-semibold text-title_color inline-block">
-                    {contact.title}
-                  </h1>
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Contact Info Card */}
+          <div className="bg-white rounded-xl shadow-md p-8 border border-gray-200 animate-fade-in-up">
+            <h2 className="text-2xl font-semibold text-title_color mb-6">
+              Get in Touch
+            </h2>
+            <div className="grid sm:grid-cols-1 grid-cols-1 gap-6">
+              {contacts.map((contact, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+                >
+                  <span className="flex items-center justify-center w-12 h-12 bg-yelow/10 rounded-full text-yelow">
+                    {contact.icon}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-medium text-title_color">
+                      {contact.title}
+                    </h3>
+                    {contact.link ? (
+                      <a
+                        href={contact.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-title_color/60 hover:text-yelow hover:underline transition-colors duration-300"
+                      >
+                        {contact.text}
+                      </a>
+                    ) : (
+                      <p className="text-sm text-title_color/60">
+                        {contact.text}
+                      </p>
+                    )}
+                  </div>
                 </div>
-
-                {/* Conditionally render <a> only if link exists */}
-                {contact.link ? (
-                  <a
-                    href={contact.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg font-medium text-title_color opacity-40 text-start leading-7 pt-3 hover:underline"
-                  >
-                    {contact.text}
-                  </a>
-                ) : (
-                  <p className="text-lg font-medium text-title_color opacity-40 text-start leading-7 pt-3">
-                    {contact.text}
-                  </p>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="lg:w-1/2 w-full lg:mx-0 sm:mx-0 mx-6">
-          <form
-            onSubmit={handleSubmit}
-            className="text-title_color flex flex-col gap-4 md:mx-0"
-          >
-            <label htmlFor="message" className="leading-7 text-md text-title_color">
-Name            </label>
-            <input
-              type="text"
-              placeholder="Your name"
-              onChange={(e) => setFirstName(e.target.value)}
-              value={firstName}
-              className="text-base focus:border-title_color flex w-full h-auto py-3 px-4 border rounded-sm"
-            />
-            <label htmlFor="message" className="leading-7 text-md text-title_color">
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="Your email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              className="focus:border-title_color text-base w-full h-auto py-3 px-4 border rounded-sm"
-            />
+          {/* Contact Form Card */}
+          <div className="bg-white rounded-xl shadow-md p-8 border border-gray-200 animate-fade-in-up animation-delay-200">
+            <h2 className="text-2xl font-semibold text-title_color mb-6">
+              Send a Message
+            </h2>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <div>
+                <label
+                  htmlFor="firstName"
+                  className="text-sm font-medium text-title_color"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  placeholder="Your name"
+                  onChange={(e) => setFirstName(e.target.value)}
+                  value={firstName}
+                  className="mt-1 w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-yelow focus:border-yelow transition-all duration-300"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="text-sm font-medium text-title_color"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Your email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  className="mt-1 w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-yelow focus:border-yelow transition-all duration-300"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="message"
+                  className="text-sm font-medium text-title_color"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  onChange={(e) => setMessage(e.target.value)}
+                  value={message}
+                  className="mt-1 w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-yelow focus:border-yelow transition-all duration-300 h-32 resize-none"
+                ></textarea>
+              </div>
 
-            <label htmlFor="message" className="leading-7 text-md text-title_color">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              onChange={(e) => setMessage(e.target.value)}
-              value={message}
-              className="rounded-sm border focus:border-title_color text-base outline-none w-full h-[200px] py-3 px-3 leading-6 hover:border-2"
-            ></textarea>
+              {status && (
+                <p
+                  className={`text-sm p-3 rounded-md border ${
+                    status.includes('successfully')
+                      ? 'text-green-600 border-green-200 bg-green-50'
+                      : 'text-red-600 border-red-200 bg-red-50'
+                  } text-center animate-fade-in`}
+                >
+                  {status}
+                </p>
+              )}
 
-            <button className="leading-7 bg-yellow px-3 py-3 rounded-sm text-body_color bg-yelow flex justify-center mx-auto w-full hover:transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
-              Send
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`px-4 py-3 rounded-md text-white font-medium bg-gradient-to-r from-yelow to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 transition-all duration-300 transform hover:-translate-y-1 ${
+                  isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
