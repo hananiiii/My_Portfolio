@@ -9,7 +9,6 @@ const Button = () => {
           Download CV
         </button>
       </a>
-
       <button className='rounded-lg border-2 md:w-[250px] sm:w-[250px] w-[180px] lg:px-5 sm:px-5 px-3 py-4 border-yelow fancy-button hover:transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer'>
         Say Hello
       </button>
