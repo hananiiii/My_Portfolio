@@ -3,7 +3,6 @@ import './hero.css';
 import Typewriter from 'typewriter-effect';
 import Button from './button';
 import Social from './social';
-
 const Hero = () => {
   return (
     <section id="hero" className="flex justify-center mx-auto lg:mt-24 mt-24 items-center text-center font-custom">
